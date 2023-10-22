@@ -9,15 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@types/node": "20.5.4",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "antd": "^5.9.0",
     "autoprefixer": "10.4.15",
+    "axios": "^1.4.0",
     "next": "13.4.19",
+    "nookies": "^2.5.2",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-pdf": "^7.5.1",
+    "react-selecto": "^1.26.0",
+    "sass": "^1.66.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/pdfjs-dist": "^2.10.378",
+    "react-refresh": "^0.14.0"
   }
 }
