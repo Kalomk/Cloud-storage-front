@@ -9,6 +9,7 @@ import {
   FilePdfOutlined,
   FileTextOutlined,
   FileZipOutlined,
+  AudioOutlined,
 } from '@ant-design/icons';
 import { useRouter, usePathname } from 'next/navigation';
 import { FileModal, UploadButton } from '@/components/client';
@@ -63,6 +64,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               icon: <VideoCameraOutlined />,
               label: `Videos`,
               onClick: () => router.push('/dashboard/videos?type=videos'),
+            },
+            {
+              key: `/dashboard/audio`,
+              icon: <AudioOutlined />,
+              label: `Audio`,
+              onClick: () => router.push('/dashboard/audio?type=audio'),
             },
             {
               key: `/dashboard/pdfs`,

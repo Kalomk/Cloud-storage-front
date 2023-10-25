@@ -16,6 +16,8 @@ const portalStyle: React.CSSProperties = {
 
 const contentStyle: React.CSSProperties = {
   position: 'relative',
+  marginTop: '100px',
+
   zIndex: 1, // Ensure the content appears above the overlay
 };
 

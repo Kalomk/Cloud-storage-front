@@ -10,12 +10,12 @@ type SelectedFiles = {
   openOrCloseSelectedFiles: (arg: boolean) => void;
   isOpen: boolean;
   currentPlay: CurrentPlayTypes;
-  addtoCurrentPlay: (path: string, format: 'video' | 'audio' | 'image') => void;
+  addtoCurrentPlay: (path: string, format: 'video' | 'audio' | 'image' | 'pdf' | 'text') => void;
 };
 
 interface CurrentPlayTypes {
   path: string;
-  type: 'video' | 'audio' | 'image' | '';
+  type: 'video' | 'audio' | 'image' | 'pdf' | 'text' | '';
 }
 
 interface SelectedTypes {
@@ -69,7 +69,7 @@ export const SelectedFilesProvider = ({ children }: SelectedFilesProviderProps) 
     });
   };
 
-  const addtoCurrentPlay = (path: string, format: 'video' | 'audio' | 'image') => {
+  const addtoCurrentPlay = (path: string, format: 'video' | 'audio' | 'image' | 'pdf' | 'text') => {
     if (format === 'video') {
       setCurrentPlay({ path: `${axios.defaults.baseURL}/video/stream/${path}`, type: format });
     } else {
