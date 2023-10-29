@@ -24,13 +24,18 @@ const FileModal = () => {
     const handleDocumentClick = (e: MouseEvent) => {
       handleClickOutside(e);
     };
+    // Add a class to the body when the modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
 
     document.addEventListener('click', handleDocumentClick, true);
-
     return () => {
       document.removeEventListener('click', handleDocumentClick, true);
     };
-  }, []);
+  }, [isOpen]);
 
   const getContentFromFormat = (format: string) => {
     switch (format) {

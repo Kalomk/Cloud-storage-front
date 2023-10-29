@@ -8,7 +8,7 @@ const UploadButton = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const onSuccess = async (options: UploadRequestOption | unknown) => {
     try {
-      await Api.Files.uploadFiles(options as UploadRequestOption);
+      await Api.Files.uploadFiles(options as UploadRequestOption, 'cool');
       setFileList([]);
       window.location.reload();
     } catch (error) {

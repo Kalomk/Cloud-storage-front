@@ -5,9 +5,9 @@ const GalleryClicker = () => {
   const { addtoCurrentPlay, currentPlay, selected } = useSelectedFiles();
 
   return (
-    <div className="min-h-[160px] w-[90%] flex flex-col justify-start items-center relative z-50 overflow-x-auto p-[10px]">
+    <div className="w-[90%] flex flex-col justify-start items-center relative z-50 overflow-x-auto p-[10px]">
       <ul className="flex w-full gap-2">
-        {selected.selectedFileNames.map((gi, index) => {
+        {selected.selectedFileNames.map((gi: string, index) => {
           const fileNameWithoutUrl = currentPlay.path.split('/').pop();
           const fileName = gi.split('/').pop();
           return (

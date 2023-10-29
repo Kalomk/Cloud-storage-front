@@ -4,7 +4,7 @@ import Api from '@/app/api';
 import { Button, Input } from 'antd';
 
 const TextReader = () => {
-  const { currentPlay, selected } = useSelectedFiles();
+  const { currentPlay } = useSelectedFiles();
   const [text, setText] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
   const { TextArea } = Input;

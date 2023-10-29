@@ -7,10 +7,14 @@ import { AxiosResponse } from 'axios';
 export const getAllFiles = async (type = FileType.ALL) =>
   (await axios.get(`/files/all?type=${type}`)).data;
 
-export const uploadFiles = async (options: UploadRequestOption) => {
+export const uploadFiles = async (options: UploadRequestOption, folderName?: string) => {
   const { onProgress, onError, onSuccess, file } = options;
   const formData = new FormData();
   formData.append('file', file);
+
+  if (folderName) {
+    formData.append('folderName', folderName);
+  }
 
   const config = {
     headers: { 'Content-Type': 'multipart/form-data' },
