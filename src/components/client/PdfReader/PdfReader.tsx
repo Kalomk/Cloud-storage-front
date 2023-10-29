@@ -1,50 +1,29 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Document, Page } from 'react-pdf';
+// Core viewer
+import { Viewer, Worker } from '@react-pdf-viewer/core';
 
-const PdfReader = ({ path }: { path?: string }) => {
-  // const [numPages, setNumPages] = useState<null | number>(null);
-  // const [pageNumber, setPageNumber] = useState(1); //setting 1 to show fisrt page
+// Plugins
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
-  // function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-  //   setNumPages(numPages);
-  //   setPageNumber(1);
-  // }
+// Import styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import { useSelectedFiles } from '../Files/FilesProvider';
 
-  // function changePage(offset: number) {
-  //   setPageNumber((prevPageNumber) => prevPageNumber + offset);
-  // }
-
-  // function previousPage() {
-  //   changePage(-1);
-  // }
-
-  // function nextPage() {
-  //   changePage(1);
-  // }
-
-  // return (
-  //   <>
-  //     <Document
-  //       file={path}
-  //       options={{ workerSrc: '/pdf.worker.js' }}
-  //       onLoadSuccess={onDocumentLoadSuccess}
-  //     >
-  //       <Page pageNumber={pageNumber} />
-  //     </Document>
-  //     <div>
-  //       <p>
-  //         Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
-  //       </p>
-  //       <button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
-  //         Previous
-  //       </button>
-  //       <button type="button" disabled={pageNumber >= numPages} onClick={nextPage}>
-  //         Next
-  //       </button>
-  //     </div>
-  //   </>
-  // );
-  <>dsffgds</>;
+const PdfReader = () => {
+  const { currentPlay } = useSelectedFiles();
+  const newPlugin = defaultLayoutPlugin();
+  return (
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+      <div
+        style={{
+          border: '1px solid rgba(0, 0, 0, 0.3)',
+          height: '500px',
+        }}
+      >
+        <Viewer fileUrl={currentPlay.path} plugins={[newPlugin]} />
+      </div>
+    </Worker>
+  );
 };
 
 export default PdfReader;

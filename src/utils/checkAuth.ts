@@ -13,9 +13,11 @@ export const checkAuth = async () => {
     // Set authorization header for Axios
     axios.defaults.headers.common['Authorization'] = `Bearer ${_token.value}`;
     // Call API to check authentication
-    await Auth.getMe();
+    const user = await Auth.getMe();
 
     console.log('Successful auth check');
+
+    return user;
   } catch (error) {
     console.log('Check failed: ' + error);
     redirect('/authorization');

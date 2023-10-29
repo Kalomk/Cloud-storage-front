@@ -11,7 +11,8 @@ const portalStyle: React.CSSProperties = {
   justifyContent: 'center',
   alignItems: 'center',
   zIndex: 9999, // Adjust the z-index as needed
-  background: 'rgba(0, 0, 0, 0.5)', // Optional: Add a semi-transparent background overlay
+  background: 'rgba(0, 0, 0, 0.5)',
+  paddingTop: '50px', // Optional: Add a semi-transparent background overlay
 };
 
 const contentStyle: React.CSSProperties = {

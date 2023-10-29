@@ -9,7 +9,6 @@ const VideoPlayer = () => {
   const [isMovedForward, setIsMovedForward] = useState<boolean>(false);
   const [isMovedBackward, setIsMovedBackward] = useState<boolean>(false);
   const { currentPlay } = useSelectedFiles();
-
   const blinkInterval = useRef<NodeJS.Timeout | null>(null);
 
   const blinkMoveIcons = (setIsMoved: (isMoved: boolean) => void) => {

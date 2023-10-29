@@ -1,8 +1,16 @@
-import { GalleryClicker, ImageLoader, MusicPlayer, Portal, VideoPlayer } from '..';
+import {
+  GalleryClicker,
+  ImageLoader,
+  MusicPlayer,
+  PdfReader,
+  Portal,
+  TextReader,
+  VideoPlayer,
+} from '..';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelectedFiles } from '../Files/FilesProvider';
 
-const FileModal = ({ children }: { children: JSX.Element }) => {
+const FileModal = () => {
   const { isOpen, openOrCloseSelectedFiles, currentPlay } = useSelectedFiles();
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -32,8 +40,16 @@ const FileModal = ({ children }: { children: JSX.Element }) => {
         return <VideoPlayer key="video" />;
       case 'audio':
         return <MusicPlayer key="audio" />;
+      case 'pdf':
+        return <PdfReader key="pdf" />;
+      case 'text':
+        return <TextReader key="text" />;
       default:
-        return <div className="text-white">Sorry,cannot read the file</div>;
+        return (
+          <div className="text-white flex flex-col justify-center items-center pt-[10px]">
+            Sorry,cannot read the file
+          </div>
+        );
     }
   };
   const [pContent, setPContent] = useState<React.ReactNode[]>(

@@ -9,11 +9,17 @@ interface MiniPlayerProps {
   fallbackImgPath: string;
   videoName: string;
   isVideoPlay: boolean;
+  folderName: string;
 }
 
-const MiniPlayer: React.FC<MiniPlayerProps> = ({ videoName, fallbackImgPath, isVideoPlay }) => {
+const MiniPlayer: React.FC<MiniPlayerProps> = ({
+  videoName,
+  fallbackImgPath,
+  isVideoPlay,
+  folderName,
+}) => {
   // Constants
-  const VIDEO_SRC = `${axios.defaults.baseURL}/uploads/videoPreview-${videoName}.mp4`;
+  const VIDEO_SRC = `${axios.defaults.baseURL}/uploads/${folderName}/videoPreview-${videoName}.mp4`;
   const videoPrewRef = useRef<HTMLDivElement | any>(null);
   // States
   const [videoUrl, setVideoUrl] = useState<string>('');

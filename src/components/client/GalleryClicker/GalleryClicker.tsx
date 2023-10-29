@@ -9,18 +9,19 @@ const GalleryClicker = () => {
       <ul className="flex w-full gap-2">
         {selected.selectedFileNames.map((gi, index) => {
           const fileNameWithoutUrl = currentPlay.path.split('/').pop();
+          const fileName = gi.split('/').pop();
           return (
             <li
               onClick={() =>
                 addtoCurrentPlay(gi, selected.selectedFormat[index] as 'audio' | 'video' | 'image')
               }
               data-item={gi}
-              key={gi + Math.random()}
+              key={fileName! + Math.random()}
               className="flex flex-col justify-center items-center cursor-pointer"
             >
               <div
                 className={`ml-[15px] flex flex-col justify-center items-center p-[5px] ${
-                  gi === fileNameWithoutUrl ? 'bg-white ' : ''
+                  fileName === fileNameWithoutUrl ? 'bg-white ' : ''
                 }`}
               >
                 <FileItem
@@ -36,7 +37,7 @@ const GalleryClicker = () => {
                 className="text-white whitespace-normal mt-[5px]"
                 style={{ width: '120px', overflow: 'hidden', textOverflow: 'ellipsis', height: 75 }}
               >
-                {gi}
+                {fileName}
               </div>
             </li>
           );

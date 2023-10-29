@@ -1,5 +1,5 @@
 import { FileModal, Files } from '@/components/client';
-import { FileList, GalleryLoader } from '@/components/server';
+import { FileList } from '@/components/server';
 import { FileType } from '@/app/api/files/dto/files.dto';
 
 const Dashboard = ({ searchParams }: { searchParams?: { type: FileType | undefined } }) => {

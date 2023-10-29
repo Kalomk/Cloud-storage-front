@@ -15,7 +15,7 @@ const RegisterForm: React.FC = () => {
         duration: 2,
       });
 
-      setCookie(null, '_token', token, {
+      setCookie(null, 'token', token, {
         path: '/',
       });
 
@@ -25,7 +25,7 @@ const RegisterForm: React.FC = () => {
 
       notification.error({
         message: 'Error!',
-        description: 'login or password is wrong',
+        description: 'User is already exist',
         duration: 2,
       });
     }

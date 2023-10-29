@@ -21,7 +21,7 @@ interface FileItemProps {
   originalName: string;
   id: number;
   isEventExist?: boolean;
-  isVideoPlay: boolean;
+  isVideoPlay?: boolean;
 }
 
 const extensionObj = {

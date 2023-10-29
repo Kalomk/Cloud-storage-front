@@ -14,8 +14,8 @@ export interface UploadRequestOption<T = any> {
   file: Exclude<any, File | boolean>;
 }
 
-export interface FileItem {
-  filename: string;
+export interface FileItemType {
+  fileName: string;
   originalName: string;
   size: number;
   mimetype: string;

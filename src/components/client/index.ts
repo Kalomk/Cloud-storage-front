@@ -24,7 +24,7 @@ import { SelectedFilesProvider } from './Files/FilesProvider';
 import GalleryClicker from './GalleryClicker/GalleryClicker';
 import FileModal from './FileModal';
 import FileItem from './Files/FileItem';
-
+import TextReader from './TextReader/TextReader';
 export {
   FileActions,
   Files,
@@ -51,4 +51,5 @@ export {
   GalleryClicker,
   FileModal,
   FileItem,
+  TextReader,
 };

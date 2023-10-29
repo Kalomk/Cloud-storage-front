@@ -3,15 +3,23 @@ import { Spin } from 'antd';
 import axios from '../../../../core/axios';
 import MiniPlayer from './MiniPlayer';
 
-const VideoFile = ({ fileName, isVideoPlay }: { fileName: string; isVideoPlay: boolean }) => {
+const VideoFile = ({
+  fileName,
+  isVideoPlay = true,
+}: {
+  fileName: string;
+  isVideoPlay?: boolean;
+}) => {
   //variables
   const [loading, setLoading] = useState(true);
-  const videoName = fileName.split('.').shift();
+  const videoName = fileName.split('/').pop()?.split('.').shift();
+  const folderName = fileName.split('/').shift();
+
   let intervalId: NodeJS.Timeout | null = null; // Declare intervalId here
 
   //constants
   const THUMBNAIL_INTERVAL = 10000; // 10 seconds
-  const THUMBNAIL_BASE_URL = `${axios.defaults.baseURL}/uploads/thumbnails/`;
+  const THUMBNAIL_BASE_URL = `${axios.defaults.baseURL}/uploads/${folderName}/thumbnails/`;
 
   const fetchThumbnail = async () => {
     try {
@@ -55,6 +63,7 @@ const VideoFile = ({ fileName, isVideoPlay }: { fileName: string; isVideoPlay: b
     return (
       <MiniPlayer
         videoName={videoName!}
+        folderName={folderName!}
         isVideoPlay={isVideoPlay}
         fallbackImgPath={THUMBNAIL_BASE_URL}
       />
