@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { parseCookies } from 'nookies';
 
-axios.defaults.baseURL = 'http://localhost:7777';
+axios.defaults.baseURL = 'https://snakicz-bot.net/cloud/store';
 
 if (typeof window !== 'undefined') {
   const { token } = parseCookies();
